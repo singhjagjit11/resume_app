@@ -1,0 +1,7 @@
+version: '0.2'
+services:
+web:
+image: nginx
+image: index.html
+ports:
+- "80:80"
