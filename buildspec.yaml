@@ -23,9 +23,7 @@ phases:
       - docker push 117022657282.dkr.ecr.us-east-1.amazonaws.com/resumeappecr:latest
       - echo Writing image definitions file...
       - printf '[{"name":"resumeappecr","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
-      - cat imagedefinitions.json 
-  deploy:
-    command:
+      - cat imagedefinitions.json
       - echo Deploying the app
       - ssh -i virtulization-key.pem ec2-user@184.73.90.60
       - sudo docker run -d -p 80:80 117022657282.dkr.ecr.us-east-1.amazonaws.com/resumeappecr:latest
