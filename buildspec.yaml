@@ -15,12 +15,12 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t resumeappecr .
-      - docker tag resumeappecr:latest 117022657282.dkr.ecr.us-east-1.amazonaws.com/resumeappecr:latest
+      - docker tag resumeappecr:latest 117022657282.dkr.ecr.us-east-1.amazonaws.com/resumeappecr:0.2
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 117022657282.dkr.ecr.us-east-1.amazonaws.com/resumeappecr:latest
+      - docker push 117022657282.dkr.ecr.us-east-1.amazonaws.com/resumeappecr:0.2
       - echo Writing image definitions file...
       - printf '[{"name":"resumeappecr","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json 
