@@ -15,7 +15,7 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t resumeappecr .
-      - docker tag resumeappecr:latest 117022657282.dkr.ecr.us-east-1.amazonaws.com/resumeappecr:0.2
+      - docker tag resumeappecr:0.2 117022657282.dkr.ecr.us-east-1.amazonaws.com/resumeappecr:0.2
   post_build:
     commands:
       - echo Build completed on `date`
